@@ -3,7 +3,7 @@ defmodule Times do
 
     # Extend the Times module with a triple function
     # that multiplies its parameter by three.
-    def triple(n), do: n * 2
+    def triple(n), do: n * 3
 
     # Add a quadruple function. (Maybe it could call the double function....)
     def quadruple(n), do: double(n) + double(n)
