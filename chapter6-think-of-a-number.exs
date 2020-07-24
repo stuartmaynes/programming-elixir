@@ -28,7 +28,7 @@ defmodule Chop do
     def guess(needle, first..last) do
         mid = div(first + last, 2)
 
-        IO.puts("Is your number #{mid}?")
+        IO.puts("Is it #{mid}?")
 
         if needle > mid do
             guess(needle, mid..last)
