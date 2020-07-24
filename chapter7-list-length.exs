@@ -10,4 +10,26 @@ defmodule MyList do
   # Return a list with one added to each of the values
   def add_one([]), do: []
   def add_one([ head|tail ]), do: [ head+1 | add_one(tail) ]
+
+  # Maps a callaback to each of the items in the list
+  def map([], _func), do: []
+  def map([ head|tail ], func), do: [ func.(head) | map(tail, func) ]
+
+  # Compute the sum of a list of integers
+  def sum([ head|tail ]), do: head + sum(tail)
+  def sum([]), do: 0
+
+  # Filter a list based on a callback
+  def filter([], _func), do: []
+  def filter(items, func) do
+      filter(items, func, [])
+  end
+  def filter([ head|tail ], func, items) do
+      if func.(head) do
+        filter(tail, func, items ++ [ head ])
+      else
+        filter(tail, func, items)
+      end
+  end
+  def filter([], _func, items), do: items
 end
