@@ -21,15 +21,11 @@ defmodule MyList do
 
   # Filter a list based on a callback
   def filter([], _func), do: []
-  def filter(items, func) do
-      filter(items, func, [])
-  end
-  def filter([ head|tail ], func, items) do
+  def filter([ head|tail ], func) do
       if func.(head) do
-        filter(tail, func, items ++ [ head ])
+        [ head|filter(tail, func) ]
       else
-        filter(tail, func, items)
+        filter(tail, func)
       end
   end
-  def filter([], _func, items), do: items
 end
