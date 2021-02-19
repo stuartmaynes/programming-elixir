@@ -28,4 +28,16 @@ defmodule MyList do
         filter(tail, func)
       end
   end
+
+  # Write a mapsum function that takes a list and a function. It applies the
+  # function to each element of the list and then sums the result, so
+  # iex> MyList.mapsum [1, 2, 3], &(&1 * &1) 14
+  def mapsum([], _func), do: 0
+  def mapsum([ head| tail ], func), do: func.(head) + mapsum(tail, func)
+
+  # Write a max(list) that returns the element with the maximum value in
+  # the list. (This is slightly trickier than it sounds.)
+  def max([ head ]), do: head
+  def max([ head|tail ]), do: Kernel.max(head, max(tail))
+
 end
