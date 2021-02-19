@@ -1,28 +1,28 @@
 # Basic example using the pipe operator
 defmodule Multiple do
 
-  def byTen(a) do
+  def by_ten(a) do
     a * 10
   end
 
-  def byHundred(a) do
-    byTen(a)
-      |> byTen
+  def by_hundred(a) do
+    by_ten(a)
+      |> by_ten
   end
 
-  def byThousand(a) do
-    byHundred(a)
-      |> byTen
+  def by_thousand(a) do
+    by_hundred(a)
+      |> by_ten
   end
 
-  def byTenThousand(a) do
-    byThousand(a)
-      |> byTen
+  def by_ten_thousand(a) do
+    by_thousand(a)
+      |> by_ten
   end
 
-  def byHundredThousand(a) do
-    byThousand(a)
-      |> byHundred
+  def by_hundred_thousand(a) do
+    by_thousand(a)
+      |> by_hundred
   end
 
 end
